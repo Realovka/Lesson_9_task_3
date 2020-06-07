@@ -2,7 +2,7 @@ package com.company;
 
 public class Division implements Operation {
     @Override
-    public double calculate(double a, double b) {
+    public double calculate(int a, int b) {
         return a/b;
     }
 }
