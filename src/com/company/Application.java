@@ -35,11 +35,17 @@ public class Application {
                     int b = scanner1.nextInt();
 
                     if (c == 1) {
-                        System.out.println("Результат операции " + addition.calculate(a, b));
+                        System.out.print("Результат операции ");
+                        System.out.printf("%.0f",  addition.calculate(a, b));
+                        System.out.println();
                     } else if (c == 2) {
-                        System.out.println("Результат операции " + subtraction.calculate(a, b));
+                        System.out.print("Результат операции ");
+                        System.out.printf("%.0f",  subtraction.calculate(a, b));
+                        System.out.println();
                     } else if (c == 3) {
-                        System.out.println("Результат операции " + multiplication.calculate(a, b));
+                        System.out.print("Результат операции ");
+                        System.out.printf("%.0f",  multiplication.calculate(a, b));
+                        System.out.println();
                     } else if (c == 4) {
                         System.out.print("Результат операции ");
                         System.out.printf("%.2f",  division.calculate(a, b));
