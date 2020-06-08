@@ -4,18 +4,17 @@ package com.company;
 import java.util.Scanner;
 
 public class Application {
-    private Scanner scanner=new Scanner(System.in);
-    private Scanner scanner1=new Scanner(System.in);
-    private Scanner scanner2=new Scanner(System.in);
-    Addition addition=new Addition();
-    Subtraction subtraction=new Subtraction();
-    Multiplication multiplication=new Multiplication();
-    Division division=new Division();
-    boolean f=true;
+    private Scanner scanner = new Scanner(System.in);
+    private Scanner scanner1 = new Scanner(System.in);
+    private Scanner scanner2 = new Scanner(System.in);
+    Addition addition = new Addition();
+    Subtraction subtraction = new Subtraction();
+    Multiplication multiplication = new Multiplication();
+    Division division = new Division();
+    boolean f = true;
 
 
-
-    public  void calculator() {
+    public void calculator() {
         while (f) {
             showMenu();
             System.out.println("Какую операцию хотите провести над числами?");
@@ -36,20 +35,20 @@ public class Application {
 
                     if (c == 1) {
                         System.out.print("Результат операции ");
-                        System.out.printf("%.0f",  addition.calculate(a, b));
-                        System.out.println();
+                        addition.calculate(a, b);
+                        System.out.println(addition.toString());
                     } else if (c == 2) {
                         System.out.print("Результат операции ");
-                        System.out.printf("%.0f",  subtraction.calculate(a, b));
-                        System.out.println();
+                        subtraction.calculate(a, b);
+                        System.out.println(subtraction.toString());
                     } else if (c == 3) {
                         System.out.print("Результат операции ");
-                        System.out.printf("%.0f",  multiplication.calculate(a, b));
-                        System.out.println();
+                        multiplication.calculate(a, b);
+                        System.out.println(multiplication.toString());
                     } else if (c == 4) {
                         System.out.print("Результат операции ");
-                        System.out.printf("%.2f",  division.calculate(a, b));
-                        System.out.println();
+                        division.calculate(a, b);
+                        System.out.println(division.toString());
                     }
                 }
             }
@@ -57,7 +56,7 @@ public class Application {
         }
     }
 
-    private void showMenu(){
+    private void showMenu() {
         System.out.println("Калькулятор");
         System.out.println("0-выход");
         System.out.println("1-сложение");
