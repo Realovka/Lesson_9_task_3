@@ -2,6 +2,7 @@ package com.company;
 
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 public class Application {
@@ -25,28 +26,28 @@ public class Application {
             int a = scanner1.nextInt();
             int b = scanner2.nextInt();
 
-            ArrayList<Operation> arrayList = new ArrayList<>();
-            arrayList.add(operation);
-            arrayList.add(addition);
-            arrayList.add(subtraction);
-            arrayList.add(multiplication);
-            arrayList.add(division);
+            List<Operation> operations = new ArrayList<>();
+            operations.add(operation);
+            operations.add(addition);
+            operations.add(subtraction);
+            operations.add(multiplication);
+            operations.add(division);
 
-            try {
+            if (c >= operations.size()) {
+                System.out.println("Нет такого действия");
+            } else {
                 if (c == 0) {
                     break;
                 } else {
-                    if (arrayList.get(c).calculate(a, b) % 1 == 0) {
-                        System.out.printf("%.0f", arrayList.get(c).calculate(a, b));
+                    if (operations.get(c).calculate(a, b) % 1 == 0) {
+                        System.out.printf("%.0f", operations.get(c).calculate(a, b));
                     } else {
-                        System.out.printf("%.2f", arrayList.get(c).calculate(a, b));
+                        System.out.printf("%.2f", operations.get(c).calculate(a, b));
                     }
                     System.out.println();
                 }
-
-            } catch (IndexOutOfBoundsException e) {
-                System.out.println("Нет такого действия");
             }
+
         }
     }
 
