@@ -1,5 +1,5 @@
 package com.company;
 
 public interface Operation {
-    void calculate(int a, int b);
+    double calculate(int a, int b);
 }

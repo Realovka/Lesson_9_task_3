@@ -36,10 +36,15 @@ public class Application {
                 if (c == 0) {
                     break;
                 } else {
-                    arrayList.get(c).calculate(a, b);
+                    if (arrayList.get(c).calculate(a, b) % 1 == 0) {
+                        System.out.printf("%.0f", arrayList.get(c).calculate(a, b));
+                    } else {
+                        System.out.printf("%.2f", arrayList.get(c).calculate(a, b));
+                    }
+                    System.out.println();
                 }
 
-            } catch (IndexOutOfBoundsException e){
+            } catch (IndexOutOfBoundsException e) {
                 System.out.println("Нет такого действия");
             }
         }
