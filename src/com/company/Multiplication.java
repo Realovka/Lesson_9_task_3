@@ -1,16 +1,13 @@
 package com.company;
 
 public class Multiplication implements Operation {
-    double result;
+    int result;
     @Override
-    public double calculate(int a, int b) {
+    public void calculate(int a, int b) {
         result=a*b;
-        return result;
-    }
-
-    @Override
-    public String toString() {
-       return String.format("%.0f",result);
+        System.out.println("Результат операции "+result);
 
     }
+
+
 }

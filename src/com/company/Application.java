@@ -1,16 +1,18 @@
 package com.company;
 
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Application {
     private Scanner scanner = new Scanner(System.in);
     private Scanner scanner1 = new Scanner(System.in);
     private Scanner scanner2 = new Scanner(System.in);
-    Addition addition = new Addition();
-    Subtraction subtraction = new Subtraction();
-    Multiplication multiplication = new Multiplication();
-    Division division = new Division();
+    Operation operation;
+    Operation addition = new Addition();
+    Operation subtraction = new Subtraction();
+    Operation multiplication = new Multiplication();
+    Operation division = new Division();
     boolean f = true;
 
 
@@ -18,41 +20,28 @@ public class Application {
         while (f) {
             showMenu();
             System.out.println("Какую операцию хотите провести над числами?");
-            int c = scanner2.nextInt();
+            int c = scanner.nextInt();
+            System.out.println("Введите два числа");
+            int a = scanner1.nextInt();
+            int b = scanner2.nextInt();
 
+            ArrayList<Operation> arrayList = new ArrayList<>();
+            arrayList.add(operation);
+            arrayList.add(addition);
+            arrayList.add(subtraction);
+            arrayList.add(multiplication);
+            arrayList.add(division);
 
-            if (c == 0) {
-                f = false;
-            } else {
-                if (c > 4 || c < 0) {
-                    System.out.println("Нет такой операции");
+            try {
+                if (c == 0) {
+                    break;
                 } else {
-
-                    System.out.println("Введите первое число");
-                    int a = scanner.nextInt();
-                    System.out.println("Введите второе число");
-                    int b = scanner1.nextInt();
-
-                    if (c == 1) {
-                        System.out.print("Результат операции ");
-                        addition.calculate(a, b);
-                        System.out.println(addition.toString());
-                    } else if (c == 2) {
-                        System.out.print("Результат операции ");
-                        subtraction.calculate(a, b);
-                        System.out.println(subtraction.toString());
-                    } else if (c == 3) {
-                        System.out.print("Результат операции ");
-                        multiplication.calculate(a, b);
-                        System.out.println(multiplication.toString());
-                    } else if (c == 4) {
-                        System.out.print("Результат операции ");
-                        division.calculate(a, b);
-                        System.out.println(division.toString());
-                    }
+                    arrayList.get(c).calculate(a, b);
                 }
-            }
 
+            } catch (IndexOutOfBoundsException e){
+                System.out.println("Нет такого действия");
+            }
         }
     }
 

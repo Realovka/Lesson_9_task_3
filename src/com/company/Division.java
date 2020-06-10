@@ -3,13 +3,11 @@ package com.company;
 public class Division implements Operation {
     double result;
     @Override
-    public double calculate(int a, int b) {
+    public void calculate(int a, int b) {
         result=(double)a/b;
-        return result ;
+        System.out.printf("%.2f", result);
+        System.out.println();
     }
 
-    @Override
-    public String toString() {
-        return String.format("%.2f", result);
-    }
+
 }
