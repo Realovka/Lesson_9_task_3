@@ -33,7 +33,6 @@ public class Application {
             int a = scanner1.nextInt();
             int b = scanner2.nextInt();
 
-
             if (c >= operations.size()) {
                 System.out.println("Нет такого действия");
             } else {
