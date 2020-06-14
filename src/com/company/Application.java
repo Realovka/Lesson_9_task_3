@@ -1,9 +1,9 @@
 package com.company;
+import java.util.Map;
+import java.util.HashMap;
+import java.util.Collection;
 
-
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Scanner;
+import java.util.*;
 
 public class Application {
     private Scanner scanner = new Scanner(System.in);
@@ -18,6 +18,13 @@ public class Application {
 
 
     public void calculator() {
+        Map<Integer, Operation> operations = new HashMap<>();
+        operations.put(0,operation);
+        operations.put(1,addition);
+        operations.put(2,subtraction);
+        operations.put(3,multiplication);
+        operations.put(4,division);
+
         while (f) {
             showMenu();
             System.out.println("Какую операцию хотите провести над числами?");
@@ -26,12 +33,6 @@ public class Application {
             int a = scanner1.nextInt();
             int b = scanner2.nextInt();
 
-            List<Operation> operations = new ArrayList<>();
-            operations.add(operation);
-            operations.add(addition);
-            operations.add(subtraction);
-            operations.add(multiplication);
-            operations.add(division);
 
             if (c >= operations.size()) {
                 System.out.println("Нет такого действия");
@@ -42,12 +43,19 @@ public class Application {
                     if (operations.get(c).calculate(a, b) % 1 == 0) {
                         System.out.printf("%.0f", operations.get(c).calculate(a, b));
                     } else {
-                        System.out.printf("%.2f", operations.get(c).calculate(a, b));
+                        if (operations.get(c).calculate(a, b) % 1 != 0 && Double.isFinite(operations.get(c).calculate(a, b)) &&
+                                !Double.isNaN(operations.get(c).calculate(a, b))) {
+                            System.out.printf("%.2f", operations.get(c).calculate(a, b));
+                        }
+                        if (Double.isInfinite(operations.get(c).calculate(a, b)) || Double.isNaN(operations.get(c).calculate(a, b))) {
+                            System.out.println("Делить на 0 нельзя");
+                        }
                     }
                     System.out.println();
-                }
-            }
 
+                }
+
+            }
         }
     }
 
@@ -62,3 +70,4 @@ public class Application {
     }
 
 }
+
